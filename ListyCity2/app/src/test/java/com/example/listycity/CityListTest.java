@@ -79,6 +79,11 @@ class CityListTest {
         cityList.deleteCity(c);
         assertEquals(false, cityList.hasCity(c));
 
+        //test delete exception, c has been deleted, see if we can delete it again
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            cityList.delete(c);
+        });
+
     }
 
     @Test
